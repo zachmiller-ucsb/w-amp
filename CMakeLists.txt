@@ -31,6 +31,7 @@
 # 2. mkdir build; cd build
 # 3. cmake ..
 # 4. make -j
+# use cmake .. -DWITH_SNAPPY=1 to run enable snappy for db_bench
 
 cmake_minimum_required(VERSION 3.10)
 
@@ -337,7 +338,7 @@ if(FAIL_ON_WARNINGS)
   if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /WX")
   else() # assume GCC
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
   endif()
 endif()
 

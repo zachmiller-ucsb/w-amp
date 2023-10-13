@@ -625,6 +625,7 @@ class VersionStorageInfo {
   const InternalKeyComparator* internal_comparator_;
   const Comparator* user_comparator_;
   int num_levels_;            // Number of levels
+  int num_levels_in_use_;     // Number of levels in use
   int num_non_empty_levels_;  // Number of levels. Any level larger than it
                               // is guaranteed to be empty.
   // Per-level max bytes

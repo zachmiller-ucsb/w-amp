@@ -263,6 +263,7 @@ struct BlockBasedTableOptions {
 
   // If non-NULL use the specified cache for blocks.
   // If NULL, rocksdb will automatically create and use a 32MB internal cache.
+  // default to 32. Maybe change this to L0 max size?
   std::shared_ptr<Cache> block_cache = nullptr;
 
   // If non-NULL use the specified cache for pages read from device

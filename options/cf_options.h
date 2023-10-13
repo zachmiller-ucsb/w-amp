@@ -179,6 +179,7 @@ struct MutableCFOptions {
             options.sample_for_compression),  // TODO: is 0 fine here?
         compression_per_level(options.compression_per_level),
         memtable_max_range_deletions(options.memtable_max_range_deletions),
+        autumn_c(options.autumn_c),
         bottommost_file_compaction_delay(
             options.bottommost_file_compaction_delay) {
     RefreshDerivedOptions(options.num_levels, options.compaction_style);
@@ -230,7 +231,8 @@ struct MutableCFOptions {
         memtable_protection_bytes_per_key(0),
         block_protection_bytes_per_key(0),
         sample_for_compression(0),
-        memtable_max_range_deletions(0) {}
+        memtable_max_range_deletions(0),
+        autumn_c(0.8) {}
 
   explicit MutableCFOptions(const Options& options);
 
@@ -296,6 +298,8 @@ struct MutableCFOptions {
   std::vector<int> max_bytes_for_level_multiplier_additional;
   CompactionOptionsFIFO compaction_options_fifo;
   CompactionOptionsUniversal compaction_options_universal;
+
+  double autumn_c;
 
   // Blob file related options
   bool enable_blob_files;
