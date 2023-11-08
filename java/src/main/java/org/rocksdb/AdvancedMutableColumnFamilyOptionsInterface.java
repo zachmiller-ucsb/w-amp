@@ -312,6 +312,30 @@ public interface AdvancedMutableColumnFamilyOptionsInterface<
   double maxBytesForLevelMultiplier();
 
   /**
+   * A scalar for the maxBytesForLevelMultiplier for each L
+   * DEFAULT: 0.8
+   * 
+   * @param autumn The scalars on the max-size multipliers 
+   *    for each level
+   * @return the reference to the current options.
+   * <p>
+   * See {@link MutableColumnFamilyOptionsInterface#setAutumnC(double)}
+  */
+  T setAutumnC(double autumn);
+
+  /**
+   * A scalar for the maxBytesForLevelMultiplier for each L
+   * DEFAULT: 0.8
+   * 
+   * @return the scalar on the level multiplier between level i and i+1 can be computed as 
+   * k*1/c^(L - i), where L is the highest level and k is the base level multiplier (that is,
+   * the last two levels differ by a factor of k in terms of max bytes).
+   * <p>
+   * See {@link MutableColumnFamilyOptionsInterface#autumnC()}
+  */
+  double autumnC();
+
+  /**
    * Different max-size multipliers for different levels.
    * These are multiplied by max_bytes_for_level_multiplier to arrive
    * at the max-size of each level.

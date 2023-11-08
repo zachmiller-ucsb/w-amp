@@ -704,6 +704,11 @@ struct AdvancedColumnFamilyOptions {
   // Dynamically changeable through SetOptions() API
   double max_bytes_for_level_multiplier = 10;
 
+  // Default: 0.8
+  //
+  // Dynamically changeable through SetOptions() API
+  double autumn_c = 0.8;
+
   // Different max-size multipliers for different levels.
   // These are multiplied by max_bytes_for_level_multiplier to arrive
   // at the max-size of each level.

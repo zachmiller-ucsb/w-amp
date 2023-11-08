@@ -3240,6 +3240,7 @@ void InitializeOptionsFromFlags(
   options.target_file_size_multiplier = FLAGS_target_file_size_multiplier;
   options.max_bytes_for_level_base = FLAGS_max_bytes_for_level_base;
   options.max_bytes_for_level_multiplier = FLAGS_max_bytes_for_level_multiplier;
+  options.autumn_c = FLAGS_autumn_c;
   options.level0_stop_writes_trigger = FLAGS_level0_stop_writes_trigger;
   options.level0_slowdown_writes_trigger = FLAGS_level0_slowdown_writes_trigger;
   options.level0_file_num_compaction_trigger =

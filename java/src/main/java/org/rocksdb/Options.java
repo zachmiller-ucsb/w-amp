@@ -1538,6 +1538,17 @@ public class Options extends RocksObject
     return this;
   }
 
+  @Override 
+  public double autumnC() {
+    return autumnC(nativeHandle_);
+  }
+
+  @Override
+  public Options setAutumnC(final double autumn_c) {
+    setAutumnC(nativeHandle_, autumn_c);
+    return this;
+  }
+
   @Override
   public long maxCompactionBytes() {
     return maxCompactionBytes(nativeHandle_);
@@ -2420,6 +2431,8 @@ public class Options extends RocksObject
       long handle);
   private native void setMaxBytesForLevelMultiplier(long handle, double multiplier);
   private native double maxBytesForLevelMultiplier(long handle);
+  private native void setAutumnC(long handle, double autumn_c);
+  private native double autumnC(long handle);
   private native void setMaxCompactionBytes(long handle, long maxCompactionBytes);
   private native long maxCompactionBytes(long handle);
   private native void setArenaBlockSize(

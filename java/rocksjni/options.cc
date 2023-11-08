@@ -2929,6 +2929,30 @@ void Java_org_rocksdb_Options_setMaxBytesForLevelMultiplier(
 
 /*
  * Class:     org_rocksdb_Options
+ * Method:    autumnC
+ * Signature: ???
+ */
+
+jdouble Java_org_rocksdb_Options_autumnC(JNIEnv*, jobject,
+                                         jlong jhandle) {
+  return reinterpret_cast<ROCKSDB_NAMESPACE::Options*>(jhandle)
+      ->autumn_c;
+}
+
+/*
+ * Class:     org_rocksdb_Options
+ * Method:    setAutumnC
+ * Signature: ???
+ */
+void Java_org_rocksdb_Options_setAutumnC(
+    JNIEnv*, jobject, jlong jhandle, jdouble jautumn_c) {
+  reinterpret_cast<ROCKSDB_NAMESPACE::Options*>(jhandle)
+      ->autumn_c = 
+      static_cast<double>(jautumn_c);
+}
+
+/*
+ * Class:     org_rocksdb_Options
  * Method:    maxCompactionBytes
  * Signature: (J)I
  */
@@ -4808,6 +4832,29 @@ void Java_org_rocksdb_ColumnFamilyOptions_setMaxBytesForLevelBase(
   reinterpret_cast<ROCKSDB_NAMESPACE::ColumnFamilyOptions*>(jhandle)
       ->max_bytes_for_level_base =
       static_cast<int64_t>(jmax_bytes_for_level_base);
+}
+
+/*
+ * Class:     org_rocksdb_ColumnFamilyOptions
+ * Method:    autumnC
+ * Signature: ???
+ */
+jdouble Java_org_rocksdb_ColumnFamilyOptions_autumnC(
+    JNIEnv*, jobject, jlong jhandle) {
+  return reinterpret_cast<ROCKSDB_NAMESPACE::ColumnFamilyOptions*>(jhandle)
+      ->autumn_c;
+}
+
+/*
+ * Class:     org_rocksdb_ColumnFamilyOptions
+ * Method:    setAutumnC
+ * Signature: ???
+ */
+void Java_org_rocksdb_ColumnFamilyOptions_setAutumnC(
+    JNIEnv*, jobject, jlong jhandle, jdouble jautumn_c) {
+  reinterpret_cast<ROCKSDB_NAMESPACE::ColumnFamilyOptions*>(jhandle)
+      ->autumn_c =
+      static_cast<double>(jautumn_c);
 }
 
 /*

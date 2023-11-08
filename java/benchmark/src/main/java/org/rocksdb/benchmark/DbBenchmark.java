@@ -578,6 +578,7 @@ public class DbBenchmark {
     options.setMaxBytesForLevelBase(
         (Integer)flags_.get(Flag.max_bytes_for_level_base));
     options.setMaxBytesForLevelMultiplier((Double) flags_.get(Flag.max_bytes_for_level_multiplier));
+    options.setAutumnC((Double) flags_.get(Flag.autumn_c));
     options.setLevelZeroStopWritesTrigger(
         (Integer)flags_.get(Flag.level0_stop_writes_trigger));
     options.setLevelZeroSlowdownWritesTrigger(
