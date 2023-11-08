@@ -492,6 +492,17 @@ public class ColumnFamilyOptions extends RocksObject
     return maxBytesForLevelMultiplier(nativeHandle_);
   }
 
+  @Override 
+  public ColumnFamilyOptions setAutumnC(final double autumnc) {
+    setAutumnC(nativeHandle_, autumnc);
+    return this;
+  }
+
+  @Override 
+  public double autumnC() {
+    return autumnC(nativeHandle_);
+  }
+
   @Override
   public ColumnFamilyOptions setMaxCompactionBytes(final long maxCompactionBytes) {
     setMaxCompactionBytes(nativeHandle_, maxCompactionBytes);
@@ -1411,6 +1422,8 @@ public class ColumnFamilyOptions extends RocksObject
       long handle);
   private native void setMaxBytesForLevelMultiplier(long handle, double multiplier);
   private native double maxBytesForLevelMultiplier(long handle);
+  private native void setAutumnC(long handle, double autumnc);
+  private native double autumnC(long handle);
   private native void setMaxCompactionBytes(long handle, long maxCompactionBytes);
   private native long maxCompactionBytes(long handle);
   private native void setArenaBlockSize(

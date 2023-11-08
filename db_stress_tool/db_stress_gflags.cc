@@ -654,6 +654,9 @@ DEFINE_uint64(max_bytes_for_level_base,
 DEFINE_double(max_bytes_for_level_multiplier, 2,
               "A multiplier to compute max bytes for level-N (N >= 2)");
 
+DEFINE_double(autumn_c, 0.8, 
+              "A scalar factor on the level multiplier for level-N (N >= 2)");
+
 DEFINE_int32(range_deletion_width, 10,
              "The width of the range deletion intervals.");
 

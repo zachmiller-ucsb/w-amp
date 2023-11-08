@@ -68,6 +68,7 @@ AdvancedColumnFamilyOptions::AdvancedColumnFamilyOptions(const Options& options)
       level_compaction_dynamic_level_bytes(
           options.level_compaction_dynamic_level_bytes),
       max_bytes_for_level_multiplier(options.max_bytes_for_level_multiplier),
+      autumn_c(options.autumn_c),
       max_bytes_for_level_multiplier_additional(
           options.max_bytes_for_level_multiplier_additional),
       max_compaction_bytes(options.max_compaction_bytes),
@@ -277,6 +278,8 @@ void ColumnFamilyOptions::Dump(Logger* log) const {
                      level_compaction_dynamic_level_bytes);
     ROCKS_LOG_HEADER(log, "         Options.max_bytes_for_level_multiplier: %f",
                      max_bytes_for_level_multiplier);
+    ROCKS_LOG_HEADER(log, "                               Options.autumn_c: %f",
+                     autumn_c);
     for (size_t i = 0; i < max_bytes_for_level_multiplier_additional.size();
          i++) {
       ROCKS_LOG_HEADER(

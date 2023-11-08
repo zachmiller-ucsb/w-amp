@@ -1252,6 +1252,10 @@ rocksdb_options_set_max_bytes_for_level_multiplier(rocksdb_options_t*, double);
 extern ROCKSDB_LIBRARY_API double
 rocksdb_options_get_max_bytes_for_level_multiplier(rocksdb_options_t*);
 extern ROCKSDB_LIBRARY_API void
+rocksdb_options_set_autumn_c(rocksdb_options_t*, double);
+extern ROCKSDB_LIBRARY_API double
+rocksdb_options_get_autumn_c(rocksdb_options_t*);
+extern ROCKSDB_LIBRARY_API void
 rocksdb_options_set_max_bytes_for_level_multiplier_additional(
     rocksdb_options_t*, int* level_values, size_t num_levels);
 extern ROCKSDB_LIBRARY_API void rocksdb_options_enable_statistics(

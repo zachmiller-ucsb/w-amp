@@ -97,6 +97,7 @@ public class MutableColumnFamilyOptions extends AbstractMutableOptions {
     target_file_size_multiplier(ValueType.INT),
     max_bytes_for_level_base(ValueType.LONG),
     max_bytes_for_level_multiplier(ValueType.INT),
+    autumn_c(ValueType.INT),
     max_bytes_for_level_multiplier_additional(ValueType.INT_ARRAY),
     ttl(ValueType.LONG),
     periodic_compaction_seconds(ValueType.LONG);
@@ -427,6 +428,17 @@ public class MutableColumnFamilyOptions extends AbstractMutableOptions {
     @Override
     public double maxBytesForLevelMultiplier() {
       return getDouble(CompactionOption.max_bytes_for_level_multiplier);
+    }
+
+    @Override 
+    public MutableColumnFamilyOptionsBuilder setAutumnC(
+        final double autumnC) {
+      return setDouble(CompactionOption.autumn_c, autumnC);
+    }
+
+    @Override 
+    public double autumnC() {
+      return getDouble(CompactionOption.autumn_c);
     }
 
     @Override
