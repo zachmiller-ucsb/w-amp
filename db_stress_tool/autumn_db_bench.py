@@ -15,7 +15,7 @@ if __name__ == '__main__':
 	p.daemon = True
 	p.start()
 
-	f = open("AutumnLog_aws.txt", "a")  # append mode
+	f = open("AutumnLog_TEST.txt", "a")  # append mode
 
 	# update to the desired kv size
 	valueSize = 100
@@ -37,9 +37,24 @@ if __name__ == '__main__':
 	if local:
 		#fix db size and k. vary c
 		for c in [0.9, 0.8, 0.7, 0.6, 0.5]:
+			# result = subprocess.run(['./db_bench', '--benchmarks=fillseq,waitforcompaction,stats',\
+			# 						'-compression_type=none',\
+			# 						'-max_bytes_for_level_multiplier='+str(T),\
+			# 						'-writes='+str(write_ops),\
+			# 						'-key_size='+str(keySize),\
+			# 						'-value_size='+str(valueSize),\
+			# 						'-autumn_c='+str(c),
+			# 						'-max_bytes_for_level_base='+str(base)], capture_output=True)
+			# f.write(result.stdout.decode('utf-8'))
+			# f.write('\n')
+			# print(result.stdout.decode('utf-8'))
+			# print("stderr:", result.stderr)
+
 			result = subprocess.run(['./db_bench', '--benchmarks=fillrandom,waitforcompaction,stats',\
+									'-compression_type=none',\
 									'-max_bytes_for_level_multiplier='+str(T),\
 									'-writes='+str(write_ops),\
+									'-key_size='+str(keySize),\
 									'-value_size='+str(valueSize),\
 									'-seed=1',\
 									'-autumn_c='+str(c),
@@ -51,9 +66,11 @@ if __name__ == '__main__':
 
 			# random point reads
 			result = subprocess.run(['./db_bench', '--benchmarks=readrandom,stats',\
+									'-compression_type=none',\
 									'-max_bytes_for_level_multiplier='+str(T),\
 									'-use_existing_db=true',\
 									'-reads='+str(read_ops),\
+									'-key_size='+str(keySize),\
 									'-value_size='+str(valueSize),\
 									'-seed=1',\
 									'-autumn_c='+str(c),\
@@ -64,9 +81,11 @@ if __name__ == '__main__':
 
 			# small range scan
 			result = subprocess.run(['./db_bench', '--benchmarks=seekrandom,stats',\
+									'-compression_type=none',\
 									'-max_bytes_for_level_multiplier='+str(T),\
 									'-use_existing_db=true',\
 									'-reads='+str(read_ops),\
+									'-key_size='+str(keySize),\
 									'-value_size='+str(valueSize),\
 									'-seed=1',\
 									'-autumn_c='+str(c),\
@@ -78,9 +97,11 @@ if __name__ == '__main__':
 
 			# long range scan
 			result = subprocess.run(['./db_bench', '--benchmarks=seekrandom,stats',\
+									'-compression_type=none',\
 									'-max_bytes_for_level_multiplier='+str(T),\
 									'-use_existing_db=true',\
 									'-reads='+str(read_ops),\
+									'-key_size'+str(keySize),\
 									'-value_size='+str(valueSize),\
 									'-seed=1',\
 									'-autumn_c='+str(c),\

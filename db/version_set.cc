@@ -4716,6 +4716,9 @@ void VersionStorageInfo::CalculateBaseBytes(const ImmutableOptions& ioptions,
     // std::cout<<"autumn_base_scale: "<<autumn_base_scale<<std::endl;
     
     // Prefill every level's max bytes to disallow compaction from there.
+    std::vector<uint64_t> level_max_bytes_copy;
+    for (int i = 0; i < num_levels_; i++) level_max_bytes_copy.push_back(level_max_bytes_[i]);
+
     for (int i = 0; i < num_levels_; i++) {
       level_max_bytes_[i] = std::numeric_limits<uint64_t>::max();
     }
@@ -4803,7 +4806,7 @@ void VersionStorageInfo::CalculateBaseBytes(const ImmutableOptions& ioptions,
         // assume an hourglass shape where L1+ sizes are smaller than L0. This
         // causes compaction scoring, which depends on level sizes, to favor L1+
         // at the expense of L0, which may fill up and stall.
-        level_max_bytes_[i] = std::max(level_size, base_bytes_max);
+        level_max_bytes_[i] = std::max(std::max(level_size, base_bytes_max), level_max_bytes_copy[i]);
       }
     }
   }
