@@ -859,7 +859,7 @@ class DBImpl : public DB {
     return immutable_db_options_;
   }
 
-  void WaitForBackgroundWork();
+  void WaitForBackgroundWorkLock();
 
   // Cancel all background jobs, including flush, compaction, background
   // purging, stats dumping threads, etc. If `wait` = true, wait for the
@@ -1213,6 +1213,8 @@ class DBImpl : public DB {
 
   // flush LOG out of application buffer
   void FlushInfoLog();
+
+  void WaitForBackgroundWork();
 
   // record current sequence number to time mapping. If
   // populate_historical_seconds > 0 then pre-populate all the
