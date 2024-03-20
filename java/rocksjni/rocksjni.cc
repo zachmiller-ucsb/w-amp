@@ -3176,7 +3176,7 @@ void Java_org_rocksdb_RocksDB_waitForBackgroundWork(JNIEnv*, jobject,
     ROCKSDB_NAMESPACE::RocksDBExceptionJni::ThrowNew(env, s);
   }
   */
-  ROCKSDB_NAMESPACE::WaitForBackgroundWorkLock(db);
+  ROCKSDB_NAMESPACE::WaitForBackgroundWork(db);
 }
 
 /*

@@ -20,7 +20,7 @@ void CancelAllBackgroundWork(DB* db, bool wait) {
 
 void WaitForBackgroundWork(DB* db) {
   (static_cast_with_check<DBImpl>(db->GetRootDB()))
-      ->WaitForBackgroundWork();
+      ->WaitForBackgroundWorkLock();
 }
 
 Status DeleteFilesInRange(DB* db, ColumnFamilyHandle* column_family,
