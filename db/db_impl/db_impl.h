@@ -859,6 +859,8 @@ class DBImpl : public DB {
     return immutable_db_options_;
   }
 
+  void WaitForBackgroundWork();
+
   // Cancel all background jobs, including flush, compaction, background
   // purging, stats dumping threads, etc. If `wait` = true, wait for the
   // running jobs to abort or finish before returning. Otherwise, only
@@ -2220,8 +2222,6 @@ class DBImpl : public DB {
   Status MaybeReleaseTimestampedSnapshotsAndCheck();
 
   Status CloseHelper();
-
-  void WaitForBackgroundWork();
 
   // Background threads call this function, which is just a wrapper around
   // the InstallSuperVersion() function. Background threads carry
