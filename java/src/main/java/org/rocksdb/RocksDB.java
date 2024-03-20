@@ -3613,8 +3613,8 @@ public class RocksDB extends RocksObject {
    * @throws RocksDBException if an error occurs when waiting for background work
    */
 
-  public void waitForCompact() throws RocksDBException {
-    waitForCompact(nativeHandle_);
+  public void waitForBackgroundWork() {
+    waitForBackgroundWork(nativeHandle_);
   }
 
   /**
@@ -4627,7 +4627,7 @@ public class RocksDB extends RocksObject {
       final int outputLevel,
       final int outputPathId,
       final long compactionJobInfoHandle) throws RocksDBException;
-  private native void waitForCompact(final long handle);
+  private native void waitForBackgroundWork(final long handle);
   private native void cancelAllBackgroundWork(final long handle,
       final boolean wait);
   private native void pauseBackgroundWork(final long handle)
