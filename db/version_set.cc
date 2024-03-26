@@ -4686,6 +4686,8 @@ void VersionStorageInfo::CalculateBaseBytes(const ImmutableOptions& ioptions,
         level_max_bytes_[i] = static_cast<uint64_t>(
             options.max_bytes_for_level_base / autumn_base_scale);
       }
+      level_max_bytes_[i] =  MultiplyCheckOverflow(options.write_buffer_size,
+                              size_t(level_max_bytes_[i]/options.write_buffer_size) + 1);
       autumn_base_scale = std::min(1.0, autumn_base_scale / options.autumn_c);
     }
   } else {
