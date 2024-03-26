@@ -2942,9 +2942,9 @@ jdouble Java_org_rocksdb_Options_autumnC(JNIEnv*, jobject, jlong jhandle) {
  * Method:    setAutumnC
  * Signature: (JD)V
  */
-void Java_org_rocksdb_Options_setAutumnC(JNIEnv*, jobject, jlong jhandle, 
+void Java_org_rocksdb_Options_setAutumnC(JNIEnv*, jobject, jlong jhandle,
                                          jdouble jautumn_c) {
-  reinterpret_cast<ROCKSDB_NAMESPACE::Options*>(jhandle)->autumn_c = 
+  reinterpret_cast<ROCKSDB_NAMESPACE::Options*>(jhandle)->autumn_c =
       static_cast<double>(jautumn_c);
 }
 

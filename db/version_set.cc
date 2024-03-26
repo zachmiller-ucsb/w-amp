@@ -4715,7 +4715,7 @@ void VersionStorageInfo::CalculateBaseBytes(const ImmutableOptions& ioptions,
     }
     double autumn_base_scale = std::min(
         1.0, std::pow(options.autumn_c, number_of_non_empty_level - 2));
-    
+
     // Prefill every level's max bytes to disallow compaction from there.
     std::vector<uint64_t> level_max_bytes_copy;
     for (int i = 0; i < num_levels_; i++)
@@ -4742,7 +4742,7 @@ void VersionStorageInfo::CalculateBaseBytes(const ImmutableOptions& ioptions,
       for (int i = num_levels_ - 2; i >= first_non_empty_level; i--) {
         // Round up after dividing
         cur_level_size = static_cast<uint64_t>(
-            std::pow(options.autumn_c, num_levels_ - 2 - i) * cur_level_size / 
+            std::pow(options.autumn_c, num_levels_ - 2 - i) * cur_level_size /
             options.max_bytes_for_level_multiplier);
         if (lowest_unnecessary_level_ == -1 &&
             cur_level_size <= base_bytes_min &&
