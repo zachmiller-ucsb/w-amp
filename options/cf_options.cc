@@ -382,7 +382,7 @@ static std::unordered_map<std::string, OptionTypeInfo>
           OptionType::kDouble, OptionVerificationType::kNormal,
           OptionTypeFlags::kMutable}},
         {"autumn_c",
-         {offsetof(struct MutableCFOptions, autumn_c), OptionType::kDouble, 
+         {offsetof(struct MutableCFOptions, autumn_c), OptionType::kDouble,
           OptionVerificationType::kNormal, OptionTypeFlags::kMutable}},
         {"max_bytes_for_level_multiplier_additional",
          OptionTypeInfo::Vector<int>(

@@ -430,12 +430,12 @@ public class MutableColumnFamilyOptions extends AbstractMutableOptions {
       return getDouble(CompactionOption.max_bytes_for_level_multiplier);
     }
 
-    @Override 
+    @Override
     public MutableColumnFamilyOptionsBuilder setAutumnC(final double autumnC) {
       return setDouble(CompactionOption.autumn_c, autumnC);
     }
 
-    @Override 
+    @Override
     public double autumnC() {
       return getDouble(CompactionOption.autumn_c);
     }

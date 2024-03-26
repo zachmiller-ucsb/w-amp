@@ -314,8 +314,8 @@ public interface AdvancedMutableColumnFamilyOptionsInterface<
   /**
    * A scalar for the maxBytesForLevelMultiplier for each L
    * DEFAULT: 0.8
-   * 
-   * @param autumn The scalars on the max-size multipliers 
+   *
+   * @param autumn The scalars on the max-size multipliers
    *    for each level
    * @return the reference to the current options.
    * <p>
@@ -326,8 +326,8 @@ public interface AdvancedMutableColumnFamilyOptionsInterface<
   /**
    * A scalar for the maxBytesForLevelMultiplier for each L
    * DEFAULT: 0.8
-   * 
-   * @return the scalar on the level multiplier between level i and i+1 can be computed as 
+   *
+   * @return the scalar on the level multiplier between level i and i+1 can be computed as
    * k*1/c^(L - i), where L is the highest level and k is the base level multiplier (that is,
    * the last two levels differ by a factor of k in terms of max bytes).
    * <p>
