@@ -492,13 +492,13 @@ public class ColumnFamilyOptions extends RocksObject
     return maxBytesForLevelMultiplier(nativeHandle_);
   }
 
-  @Override 
+  @Override
   public ColumnFamilyOptions setAutumnC(final double autumnc) {
     setAutumnC(nativeHandle_, autumnc);
     return this;
   }
 
-  @Override 
+  @Override
   public double autumnC() {
     return autumnC(nativeHandle_);
   }

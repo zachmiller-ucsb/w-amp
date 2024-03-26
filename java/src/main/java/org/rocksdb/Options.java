@@ -1538,7 +1538,7 @@ public class Options extends RocksObject
     return this;
   }
 
-  @Override 
+  @Override
   public double autumnC() {
     return autumnC(nativeHandle_);
   }

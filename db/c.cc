@@ -3012,13 +3012,11 @@ double rocksdb_options_get_max_bytes_for_level_multiplier(
   return opt->rep.max_bytes_for_level_multiplier;
 }
 
-double rocksdb_options_get_autumn_c(
-    rocksdb_options_t* opt) {
+double rocksdb_options_get_autumn_c(rocksdb_options_t* opt) {
   return opt->rep.autumn_c;
 }
 
-void rocksdb_options_set_autumn_c(rocksdb_options_t* opt,
-                                  double n) {
+void rocksdb_options_set_autumn_c(rocksdb_options_t* opt, double n) {
   opt->rep.autumn_c = n;
 }
 
