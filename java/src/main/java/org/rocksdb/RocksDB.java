@@ -3607,9 +3607,9 @@ public class RocksDB extends RocksObject {
   }
 
   /*
-   * This function will wait until all running background processes finish, including 
+   * This function will wait until all running background processes finish, including
    * those that are not yet scheduled.
-   * 
+   *
    * @throws RocksDBException if an error occurs when waiting for background work
    */
 
