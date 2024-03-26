@@ -431,8 +431,7 @@ public class MutableColumnFamilyOptions extends AbstractMutableOptions {
     }
 
     @Override 
-    public MutableColumnFamilyOptionsBuilder setAutumnC(
-        final double autumnC) {
+    public MutableColumnFamilyOptionsBuilder setAutumnC(final double autumnC) {
       return setDouble(CompactionOption.autumn_c, autumnC);
     }
 

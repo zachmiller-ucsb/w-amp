@@ -320,7 +320,7 @@ public interface AdvancedMutableColumnFamilyOptionsInterface<
    * @return the reference to the current options.
    * <p>
    * See {@link MutableColumnFamilyOptionsInterface#setAutumnC(double)}
-  */
+   */
   T setAutumnC(double autumn);
 
   /**
@@ -332,7 +332,7 @@ public interface AdvancedMutableColumnFamilyOptionsInterface<
    * the last two levels differ by a factor of k in terms of max bytes).
    * <p>
    * See {@link MutableColumnFamilyOptionsInterface#autumnC()}
-  */
+   */
   double autumnC();
 
   /**

@@ -855,7 +855,8 @@ DEFINE_double(max_bytes_for_level_multiplier, 10,
               "A multiplier to compute max bytes for level-N (N >= 2)");
 
 DEFINE_double(autumn_c, 0.8,
-              "Used to compute scalar for max bytes level multiplier for level N (N >= 2)");
+              "Used to compute scalar for max bytes level multiplier for level "
+              "N (N >= 2)");
 
 static std::vector<int> FLAGS_max_bytes_for_level_multiplier_additional_v;
 DEFINE_string(max_bytes_for_level_multiplier_additional, "",
@@ -4200,8 +4201,7 @@ class Benchmark {
         FLAGS_level_compaction_dynamic_level_bytes;
     options.max_bytes_for_level_multiplier =
         FLAGS_max_bytes_for_level_multiplier;
-    options.autumn_c = 
-        FLAGS_autumn_c;
+    options.autumn_c = FLAGS_autumn_c;
     Status s =
         CreateMemTableRepFactory(config_options, &options.memtable_factory);
     if (!s.ok()) {

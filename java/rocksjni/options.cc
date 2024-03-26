@@ -2930,24 +2930,22 @@ void Java_org_rocksdb_Options_setMaxBytesForLevelMultiplier(
 /*
  * Class:     org_rocksdb_Options
  * Method:    autumnC
- * Signature: ???
+ * Signature: (J)D
  */
 
 jdouble Java_org_rocksdb_Options_autumnC(JNIEnv*, jobject,
                                          jlong jhandle) {
-  return reinterpret_cast<ROCKSDB_NAMESPACE::Options*>(jhandle)
-      ->autumn_c;
+  return reinterpret_cast<ROCKSDB_NAMESPACE::Options*>(jhandle)->autumn_c;
 }
 
 /*
  * Class:     org_rocksdb_Options
  * Method:    setAutumnC
- * Signature: ???
+ * Signature: (JD)V
  */
 void Java_org_rocksdb_Options_setAutumnC(
     JNIEnv*, jobject, jlong jhandle, jdouble jautumn_c) {
-  reinterpret_cast<ROCKSDB_NAMESPACE::Options*>(jhandle)
-      ->autumn_c = 
+  reinterpret_cast<ROCKSDB_NAMESPACE::Options*>(jhandle)->autumn_c = 
       static_cast<double>(jautumn_c);
 }
 
@@ -4837,10 +4835,10 @@ void Java_org_rocksdb_ColumnFamilyOptions_setMaxBytesForLevelBase(
 /*
  * Class:     org_rocksdb_ColumnFamilyOptions
  * Method:    autumnC
- * Signature: ???
+ * Signature: (J)D
  */
-jdouble Java_org_rocksdb_ColumnFamilyOptions_autumnC(
-    JNIEnv*, jobject, jlong jhandle) {
+jdouble Java_org_rocksdb_ColumnFamilyOptions_autumnC(JNIEnv*, jobject, 
+                                                     jlong jhandle) {
   return reinterpret_cast<ROCKSDB_NAMESPACE::ColumnFamilyOptions*>(jhandle)
       ->autumn_c;
 }
@@ -4848,12 +4846,12 @@ jdouble Java_org_rocksdb_ColumnFamilyOptions_autumnC(
 /*
  * Class:     org_rocksdb_ColumnFamilyOptions
  * Method:    setAutumnC
- * Signature: ???
+ * Signature: (JD)V
  */
-void Java_org_rocksdb_ColumnFamilyOptions_setAutumnC(
-    JNIEnv*, jobject, jlong jhandle, jdouble jautumn_c) {
-  reinterpret_cast<ROCKSDB_NAMESPACE::ColumnFamilyOptions*>(jhandle)
-      ->autumn_c =
+void Java_org_rocksdb_ColumnFamilyOptions_setAutumnC(JNIEnv*, jobject, 
+                                                     jlong jhandle, 
+                                                     jdouble jautumn_c) {
+  reinterpret_cast<ROCKSDB_NAMESPACE::ColumnFamilyOptions*>(jhandle)->autumn_c =
       static_cast<double>(jautumn_c);
 }
 
