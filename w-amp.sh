@@ -16,13 +16,14 @@ base=$(( $mb*(10**6) ))
 db=/db_bench
 
 ./db_bench \
- 		--db=$db \
- 		--benchmarks=fillrandom,stats \
- 		-compression_type=none \
- 		-max_bytes_for_level_multiplier=$T \
- 		-num=$write_ops \
- 		-key_size=$key_size \
- 		-value_size=$value_size \
- 		-seed=1 \
- 		-max_bytes_for_level_base=$base \
-    -stats_dump_period_sec=10
+	--db=$db \
+	--benchmarks=fillrandom,stats \
+	-compression_type=none \
+	-max_bytes_for_level_multiplier=$T \
+	-num=$write_ops \
+	-key_size=$key_size \
+	-value_size=$value_size \
+	-seed=1 \
+	-max_bytes_for_level_base=$base \
+	-bloom_bits=0 \
+	-stats_dump_period_sec=10
