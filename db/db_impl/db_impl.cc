@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <cinttypes>
 #include <cstdio>
+#include <cstdlib>
 #include <map>
 #include <set>
 #include <sstream>
@@ -1131,6 +1132,10 @@ void DBImpl::DumpStats() {
     }
   }
   TEST_SYNC_POINT("DBImpl::DumpStats:2");
+
+  const char* cmd = "iostat >> /db_bench/iostat_output";
+  system(cmd);
+
   ROCKS_LOG_INFO(immutable_db_options_.info_log,
                  "------- DUMPING STATS -------");
   ROCKS_LOG_INFO(immutable_db_options_.info_log, "%s", stats.c_str());
