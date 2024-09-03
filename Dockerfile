@@ -15,4 +15,4 @@ RUN apt-get update \
 RUN git clone https://github.com/zachmiller-ucsb/w-amp.git ~/w-amp \
   && cd ~/w-amp \
   && git switch rocksdb \
-  && DEBUG_LEVEL=0 make -j$(nproc) db_bench
+  && DEBUG_LEVEL=0 DISABLE_WARNING_AS_ERROR=1 make -j$(nproc) db_bench
