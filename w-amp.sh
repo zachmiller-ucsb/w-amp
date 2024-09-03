@@ -5,7 +5,7 @@ value_size=512
 key_size=16
 
 gb_in_writes=$(( 10**9 / ($value_size + $key_size) ))
-gb=50 # 50 GB on aws
+gb=300 # 50 GB on aws
 write_ops=$(( $gb * $gb_in_writes )) 
 
 T=5
@@ -26,4 +26,5 @@ db=/db_bench
 	-seed=1 \
 	-max_bytes_for_level_base=$base \
 	-bloom_bits=0 \
-	-stats_dump_period_sec=10
+	-num_levels=10 \
+	-stats_dump_period_sec=60
